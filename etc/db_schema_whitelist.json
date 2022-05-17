@@ -1,0 +1,19 @@
+{
+    "leandrorosa_post": {
+        "column": {
+            "entity_id": true,
+            "title": true,
+            "identifier": true,
+            "content": true,
+            "creation_time": true,
+            "update_time": true,
+            "is_active": true
+        },
+        "index": {
+            "LEANDROROSA_POST_IDENTIFIER": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}

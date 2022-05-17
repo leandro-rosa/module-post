@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * LeandroRosa
+ *
+ * NOTICE OF LICENSE
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to https://github.com/leandro-rosa for more information.
+ *
+ * @category LeandroRosa
+ *
+ * @copyright Copyright (c) 2022 Leandro Rosa (https://github.com/leandro-rosa)
+ *
+ * @author Leandro Rosa <dev.leandrorosa@gmail.com>
+ */
+-->
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="leandrorosa_post" resource="default" engine="innodb" comment="Post Table">
+        <column xsi:type="smallint" name="entity_id" unsigned="false" nullable="false" identity="true"
+                comment="Entity ID"/>
+        <column xsi:type="varchar" name="title" nullable="false" length="255" comment="Post Title"/>
+        <column xsi:type="varchar" name="identifier" nullable="false" length="255" comment="Post String Identifier"/>
+        <column xsi:type="mediumtext" name="content" nullable="true" comment="Post Content"/>
+        <column xsi:type="timestamp" name="creation_time" on_update="false" nullable="false" default="CURRENT_TIMESTAMP"
+                comment="Post Creation Time"/>
+        <column xsi:type="timestamp" name="update_time" on_update="true" nullable="false" default="CURRENT_TIMESTAMP"
+                comment="Post Modification Time"/>
+        <column xsi:type="smallint" name="is_active" unsigned="false" nullable="false" identity="false"
+                default="1" comment="Is Post Active"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+        </constraint>
+        <index referenceId="LEANDROROSA_POST_IDENTIFIER" indexType="btree">
+            <column name="identifier"/>
+        </index>
+    </table>
+</schema>
